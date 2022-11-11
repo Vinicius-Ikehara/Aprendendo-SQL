@@ -1,0 +1,29 @@
+List all the Canadian cities and their populations
+  SELECT City, Population 
+  FROM north_american_cities
+  WHERE Country LIKE "%Canada%";
+
+Order all the cities in the United States by their latitude from north to south
+  SELECT City
+  FROM north_american_cities
+  WHERE Country LIKE "%United States%"
+  ORDER BY Latitude Desc;
+
+List all the cities west of Chicago, ordered from west to east 
+  SELECT City FROM north_american_cities
+  WHERE longitude < -87.629798
+  ORDER BY longitude ASC;
+ 
+List the two largest cities in Mexico (by population)
+ SELECT City, Population 
+ FROM north_american_cities
+ WHERE Country LIKE "%Mexico%"
+ ORDER BY Population DESC
+ LIMIT 2;
+
+List the third and fourth largest cities (by population) in the United States and their population
+ SELECT City, Population 
+ FROM north_american_cities
+ WHERE Country LIKE "%UNITED STATES%"
+ ORDER BY Population DESC
+ LIMIT 2 OFFSET 2;
